@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Converter</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Area Converter</h1>
+        <form id="converter-form">
+            <label for="yards">Enter Yards:</label>
+            <input type="number" id="yards" required>
+            <button type="button" onclick="convert()">Convert</button>
+        </form>
+        <div id="result"></div>
+    </div>
+</body>
+<script>
+function convert() {
+    const yards = parseFloat(document.getElementById('yards').value);
+    const squareFeet = yards * 9; // 1 yard = 9 square feet
+    const result = `${yards} yards is equal to ${squareFeet} square feet.`;
+    document.getElementById('result').textContent = result;
+}</script>
+
+
+</html>
