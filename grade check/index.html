@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Grade Calculator</h1>
+        <div class="input-group">
+            <label for="marks">Enter your marks:</label>
+            <input type="text" id="marks" maxlength="3" placeholder="Enter marks">
+        </div>
+        <button class="btn-calculate" onclick="calculateGrade()">Calculate Grade</button>
+        <p class="grade-result" id="grade"></p>
+        <div class="error" id="error-message">Please enter a valid number between 0 and 100.</div>
+    </div>
+
+    <script>
+        var inputField = document.getElementById("marks");
+        var errorDiv = document.getElementById("error-message");
+
+        function calculateGrade() {
+            var marks = inputField.value;
+            var grade = "";
+
+            if (marks >= 0 && marks <= 100) {
+                if (marks >= 80) {
+                    grade = "A+";
+                } else if (marks >= 70) {
+                    grade = "A";
+                } else if (marks >= 60) {
+                    grade = "B";
+                } else if (marks >= 50) {
+                    grade = "C";
+                } else {
+                    grade = "F";
+                }
+
+                document.getElementById("grade").innerText = "Your grade is: " + grade;
+                errorDiv.style.display = "none"; // Hide error message if valid input
+            } else {
+                document.getElementById("grade").innerText = ""; // Clear grade if invalid input
+                errorDiv.style.display = "block"; // Show error message for invalid input
+            }
+        }
+    </script>
+</body>
+
+</html>
